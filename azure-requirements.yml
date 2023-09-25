@@ -1,0 +1,14 @@
+
+trigger:
+- none
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: Run RequirementsClient
+    inputs:
+      command: run
+      projects: requirementsClient\requirementsClient.csproj
+      arguments: $(System.AccessToken)
