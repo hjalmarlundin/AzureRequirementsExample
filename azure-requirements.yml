@@ -6,6 +6,10 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
+  - bash: |
+      git diff --name-only origin/master  > tmp.txt
+    displayName: Git diff
+  
   - task: DotNetCoreCLI@2
     displayName: Run RequirementsClient
     inputs:

@@ -9,7 +9,7 @@ public class Program
         string orgUrl = args.ElementAtOrDefault(1) ?? "https://dev.azure.com/MyOrganization/";
         string pat = args.FirstOrDefault() ?? "ENTER PAT HERE";
 
-        var pullRequestId = args.ElementAtOrDefault(2) != null ? int.Parse(args[2]) : 806;
+        var pullRequestId = args.ElementAtOrDefault(2) != null ? int.Parse(args[2]) : 0;
         var fileNames = GetFileNames(args);
         Predicate<string> filter = fileNames.IsNullOrEmpty() ? x => true : x => fileNames.Contains(x);
         var requirementsFromCode = new RequirementAssemblyScanner().GetRequirementWithAssociatedTestCases(filter);
